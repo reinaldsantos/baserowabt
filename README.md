@@ -105,7 +105,7 @@ Os dados podem ser visualizados via API ou diretamente na interface do Baserow.
 
 ### 6.1 Token de Database (para CRUD)
 
-> **Atenção:** não inclua tokens reais em repositórios públicos. Use um valor de exemplo/placeholder.
+> Atenção: não inclua tokens reais em repositórios públicos. Use um valor de exemplo/placeholder.
 
 - `DATABASE_TOKEN`: `<<SEU_DATABASE_TOKEN_AQUI>>`
 
