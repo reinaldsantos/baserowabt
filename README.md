@@ -12,6 +12,8 @@
 - [1. Visão Geral](#1-visão-geral)
 - [2. Ambiente Utilizado](#2-ambiente-utilizado)
 - [3. Implantação](#3-implantação)
+  - [3.1 Docker](#31-docker)
+  - [3.2 Firewall](#32-firewall)
 - [4. Modelagem do Banco](#4-modelagem-do-banco)
 - [5. Registros de Teste](#5-registros-de-teste)
 - [6. Autenticação](#6-autenticação)
@@ -52,20 +54,41 @@ O desafio técnico consistia em:
 
 ## 3. Implantação
 
-### 🔧 Docker
+### 3.1 🐳 Docker
+
+Execute o seguinte comando no **PowerShell ou CMD** para criar e iniciar o container:
 
 ```bash
-docker run -d \
-  --name baserow-desafio \
-  -e BASEROW_PUBLIC_URL=http://192.168.0.109:8080 \
-  -v baserow_data:/baserow/data \
-  -p 8080:80 \
-  -p 8443:443 \
-  --restart unless-stopped \
+docker run -d `
+  --name baserow-desafio `
+  -e BASEROW_PUBLIC_URL=http://192.168.0.109:8080 `
+  -v baserow_data:/baserow/data `
+  -p 8080:80 `
+  -p 8443:443 `
+  --restart unless-stopped `
   baserow/baserow:1.34.5
-🔐 Firewall (Windows)
+Explicação dos parâmetros:
+
+-d → executa em segundo plano (detached)
+
+--name → define um nome para o container
+
+-e → define a variável de ambiente BASEROW_PUBLIC_URL (necessária para o frontend funcionar)
+
+-v → cria um volume persistente (baserow_data) para manter os dados
+
+-p → mapeia a porta 8080 do host para a porta 80 do container (acesso web) e 8443 para 443 (HTTPS opcional)
+
+--restart unless-stopped → reinicia automaticamente se o container parar acidentalmente
+
+3.2 🔥 Firewall (Windows)
+Para permitir que outros computadores na mesma rede acessem o Baserow, libere a porta 8080 no Firewall do Windows:
+
 bash
 netsh advfirewall firewall add rule name="Baserow 8080" dir=in action=allow protocol=TCP localport=8080
+Verifique se a regra foi criada:
+netsh advfirewall firewall show rule name="Baserow 8080"
+
 4. Modelagem do Banco
 🧑‍⚕️ Pacientes (ID: 711)
 Campo	Tipo	Descrição
