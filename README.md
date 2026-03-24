@@ -140,17 +140,25 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -d '{"email":"reinaldasntos312@gmail.com","password":"12345678"}' \
   http://192.168.0.109:8080/api/user/token-auth/
-7. Demonstração das Telas
+## 7. Demonstração das Telas
+
 A seguir, imagens da aplicação em funcionamento, mostrando as tabelas e os dados cadastrados.
 
-🏠 Visão Geral – Aplicação Clinica_Medica
-<p align="center"> <img src="./docs/images/baserow.png" alt="Visão Geral" width="80%"> </p>
-👥 Lista de Pacientes (ID: 711)
-<p align="center"> <img src="./docs/images/pacientes.png" alt="Pacientes" width="80%"> </p>
-👨‍⚕️ Lista de Médicos (ID: 713)
-<p align="center"> <img src="./docs/images/medicos.png" alt="Médicos" width="80%"> </p>
-📅 Lista de Consultas (ID: 712)
-<p align="center"> <img src="./docs/images/consultas.png" alt="Consultas" width="80%"> </p>
+### 🏠 Visão Geral – Aplicação `Clinica_Medica`
+
+![Visão Geral](./docs/images/baserow.png)
+
+### 👥 Lista de Pacientes (ID: 711)
+
+![Pacientes](./docs/images/pacientes.png)
+
+### 👨‍⚕️ Lista de Médicos (ID: 713)
+
+![Médicos](./docs/images/medicos.png)
+
+### 📅 Lista de Consultas (ID: 712)
+
+![Consultas](./docs/images/consultas.png)
 8. API
 Base URL: http://192.168.0.109:8080/api
 
