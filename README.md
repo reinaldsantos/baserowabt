@@ -17,13 +17,14 @@
 - [4. Modelagem do Banco](#4-modelagem-do-banco)
 - [5. Registros de Teste](#5-registros-de-teste)
 - [6. Autenticação](#6-autenticação)
-- [7. API](#7-api)
-- [8. Exemplos de Requisições](#8-exemplos-de-requisições)
-- [9. Acesso à Interface Web](#9-acesso-à-interface-web)
-- [10. Troubleshooting](#10-troubleshooting)
-- [11. Comandos Docker Úteis](#11-comandos-docker-úteis)
-- [12. Estado Atual](#12-estado-atual)
-- [13. Considerações Finais](#13-considerações-finais)
+- [7. Demonstração das Telas](#7-demonstração-das-telas)
+- [8. API](#8-api)
+- [9. Exemplos de Requisições](#9-exemplos-de-requisições)
+- [10. Acesso à Interface Web](#10-acesso-à-interface-web)
+- [11. Troubleshooting](#11-troubleshooting)
+- [12. Comandos Docker Úteis](#12-comandos-docker-úteis)
+- [13. Estado Atual](#13-estado-atual)
+- [14. Considerações Finais](#14-considerações-finais)
 
 ---
 
@@ -139,7 +140,18 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -d '{"email":"reinaldasntos312@gmail.com","password":"12345678"}' \
   http://192.168.0.109:8080/api/user/token-auth/
-7. API
+7. Demonstração das Telas
+A seguir, imagens da aplicação em funcionamento, mostrando as tabelas e os dados cadastrados.
+
+🏠 Visão Geral – Aplicação Clinica_Medica
+<p align="center"> <img src="./docs/images/baserow.png" alt="Visão Geral" width="80%"> </p>
+👥 Lista de Pacientes (ID: 711)
+<p align="center"> <img src="./docs/images/pacientes.png" alt="Pacientes" width="80%"> </p>
+👨‍⚕️ Lista de Médicos (ID: 713)
+<p align="center"> <img src="./docs/images/medicos.png" alt="Médicos" width="80%"> </p>
+📅 Lista de Consultas (ID: 712)
+<p align="center"> <img src="./docs/images/consultas.png" alt="Consultas" width="80%"> </p>
+8. API
 Base URL: http://192.168.0.109:8080/api
 
 Operação	Método	Endpoint
@@ -151,7 +163,7 @@ Listar consultas	GET	/database/rows/table/712/?user_field_names=true
 Criar consulta	POST	/database/rows/table/712/?user_field_names=true
 Atualizar registro	PATCH	/database/rows/table/{table_id}/{row_id}/?user_field_names=true
 Deletar registro	DELETE	/database/rows/table/{table_id}/{row_id}/?user_field_names=true
-8. Exemplos de Requisições
+9. Exemplos de Requisições
 📥 Listar todos os médicos
 bash
 curl -X GET \
@@ -183,7 +195,7 @@ bash
 curl -X DELETE \
   -H "Authorization: Token ZflqGRqnGhdjsYEZ4gzZVP0wH9e1J2KN" \
   "http://192.168.0.109:8080/api/database/rows/table/713/6/?user_field_names=true"
-9. Acesso à Interface Web
+10. Acesso à Interface Web
 Local: http://localhost:8080
 
 Rede local: http://192.168.0.109:8080
@@ -193,14 +205,14 @@ E‑mail: reinaldasntos312@gmail.com
 
 Senha: 12345678
 
-10. Troubleshooting
+11. Troubleshooting
 Problema	Provável causa e solução
 ERR_CONNECTION_REFUSED	Docker não iniciado ou IP mudou. Verifique docker ps e ipconfig.
 Site not found	BASEROW_PUBLIC_URL incorreta. Recrie o container com o IP atual.
 Colegas não acessam	Firewall bloqueando. Libere a porta 8080 com o comando netsh advfirewall.
 Dados sumiram	Volume baserow_data foi removido. Se não removeu, os dados ainda existem.
 401 Unauthorized	Token inválido ou ausente. Envie o cabeçalho Authorization: Token <token>.
-11. Comandos Docker Úteis
+12. Comandos Docker Úteis
 Ação	Comando
 Iniciar container	docker start baserow-desafio
 Parar container	docker stop baserow-desafio
@@ -209,7 +221,7 @@ Ver logs em tempo real	docker logs -f baserow-desafio
 Ver últimas 50 linhas	docker logs --tail 50 baserow-desafio
 Recriar com novo IP	docker rm baserow-desafio
 docker run ... (com novo IP)
-12. Estado Atual
+13. Estado Atual
 ✅ Container rodando e saudável
 
 🌐 IP atual: 192.168.0.109
@@ -220,7 +232,7 @@ docker run ... (com novo IP)
 
 🔥 Porta 8080 liberada no firewall
 
-13. Considerações Finais
+14. Considerações Finais
 Todos os critérios do desafio foram cumpridos:
 
 ✔️ Deploy funcional na rede local
@@ -234,4 +246,4 @@ Todos os critérios do desafio foram cumpridos:
 ✔️ Documentação completa
 
 👨‍💻 Autor: Gabriel Santos
-📅 Data: 23/03/2026
+📅 Data: 24/03/2026
